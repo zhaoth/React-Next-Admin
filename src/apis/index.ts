@@ -46,7 +46,7 @@ import { generatorAPIS } from '@/lib/request';
 
 enum apis {
   // get
-  getTodos = 'GET todos/1',
+  getTodos = 'GET api/todos/1',
   //post
   getDataDictionaryByType = 'POST rksBff/case-dict/search-types [data]',
   // file
