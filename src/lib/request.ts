@@ -1,12 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { G, requestCreator } from '@siyuan0215/easier-axios-dsl';
 
-
-const ERROR_CODES = {
-  REPEAT_LOGIN: '510',
-  CASE_NO_OPERATION: '3005',
-};
-
 const TIMEOUT = {
   DEFAULT: 60000,
   UPLOADING: 5 * 60000,
