@@ -15,11 +15,12 @@ const redirects=()=> {
 const rewrites = () => {
   return [
     {
-      source: "/api/:slug*",
-      destination: "http://localhost:7000/api/:slug*",
+      source: "/:slug*",
+      destination: process.env.PROXY,
     },
   ];
 };
+console.log(process.env);
 const nextConfig = {
   isProd,
   rewrites,
