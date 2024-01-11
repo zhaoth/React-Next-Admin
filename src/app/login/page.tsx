@@ -1,16 +1,8 @@
 'use client';
 
-import { message, Tabs, theme } from 'antd';
-import { LockOutlined, MobileOutlined, UserOutlined } from '@ant-design/icons';
-import {
-  LoginForm,
-  ProConfigProvider,
-  ProFormCaptcha,
-  ProFormCheckbox,
-  ProFormText,
-  setAlpha,
-} from '@ant-design/pro-components';
-import type { CSSProperties } from 'react';
+import { Tabs, theme } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -23,24 +15,15 @@ export default function Login() {
   const router = useRouter();
   const [loginType, setLoginType] = useState<LoginType>('account');
 
-  const iconStyles: CSSProperties = {
-    marginInlineStart: '16px',
-    color: setAlpha(token.colorTextBase, 0.2),
-    fontSize: '24px',
-    verticalAlign: 'middle',
-    cursor: 'pointer',
-  };
-
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
-    { label: '手机号登录', key: 'mobile' },
   ];
-  const onSubmit = ()=>{
-    router.push('/dashboard')
-  }
+  const onSubmit = () => {
+    router.push('/dashboard');
+  };
   return (
     <ProConfigProvider hashed={false}>
-      <div style={{ backgroundColor: token.colorBgContainer }}>
+      <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }}>
         <LoginForm
           onFinish={onSubmit}
           logo="https://randomuser.me/api/portraits/lego/1.jpg"
@@ -115,54 +98,6 @@ export default function Login() {
                     message: '请输入密码！',
                   },
                 ]}
-              />
-            </>
-          )}
-          {loginType === 'phone' && (
-            <>
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  prefix: <MobileOutlined className={'prefixIcon'} />,
-                }}
-                name="mobile"
-                placeholder={'手机号'}
-                rules={[
-                  {
-                    required: true,
-                    message: '请输入手机号！',
-                  },
-                  {
-                    pattern: /^1\d{10}$/,
-                    message: '手机号格式错误！',
-                  },
-                ]}
-              />
-              <ProFormCaptcha
-                fieldProps={{
-                  size: 'large',
-                  prefix: <LockOutlined className={'prefixIcon'} />,
-                }}
-                captchaProps={{
-                  size: 'large',
-                }}
-                placeholder={'请输入验证码'}
-                captchaTextRender={(timing, count) => {
-                  if (timing) {
-                    return `${count} ${'获取验证码'}`;
-                  }
-                  return '获取验证码';
-                }}
-                name="captcha"
-                rules={[
-                  {
-                    required: true,
-                    message: '请输入验证码！',
-                  },
-                ]}
-                onGetCaptcha={async () => {
-                  message.success('获取验证码成功！验证码为：1234');
-                }}
               />
             </>
           )}

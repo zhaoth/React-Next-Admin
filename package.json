@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
+    "@ant-design/pro-components": "^2.6.43",
     "@siyuan0215/easier-axios-dsl": "^1.1.11",
     "ahooks": "^3.7.8",
     "antd": "^5.12.8",
