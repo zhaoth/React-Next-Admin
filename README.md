@@ -22,4 +22,5 @@ yarn dev
 - [Ant Design](https://ant-design.antgroup.com/components/overview-cn?from=msidevs.net) UI组件库
 - [Tailwindcss](https://www.tailwindcss.cn/docs/installation) 原子化 css 组件库（可选择使用，但是强烈推荐使用）
 - [ZUSTAND](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand) 状态管理
+- [ahooks](https://ahooks.js.org/zh-CN)一套高质量可靠的 React Hooks 库
 

@@ -1,19 +1,9 @@
 'use client';
 
-import APIS from '@/apis';
-import { useEffect } from 'react';
+import DemoTable from '@/components/DemoTable';
 
 export default function Dashboard() {
-  const getTodos = async () => {
-    const res = await APIS.getTodos();
-    console.log(res);
-  };
-  useEffect(() => {
-    getTodos();
-  });
   return (
-    <div>
-      DashBord
-    </div>
+    <DemoTable></DemoTable>
   );
 }

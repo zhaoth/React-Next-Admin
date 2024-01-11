@@ -45,12 +45,7 @@ import { generatorAPIS } from '@/lib/request';
  * */
 
 enum apis {
-  // get
-  getTodos = 'GET api/todos/1',
-  //post
-  getDataDictionaryByType = 'POST rksBff/case-dict/search-types [data]',
-  // file
-  importCsv = 'POST rksWarrantyAudit/warranty/report-upload-csv d.f:file d:*',
+ getTableList = 'GET api query:results,page,size',
 }
 
 export default generatorAPIS<typeof apis>(apis);
