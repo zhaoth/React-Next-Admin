@@ -22,6 +22,7 @@ const rewrites = () => {
 };
 const nextConfig = {
   rewrites,
+  reactStrictMode: false,
 };
 
 module.exports = nextConfig;

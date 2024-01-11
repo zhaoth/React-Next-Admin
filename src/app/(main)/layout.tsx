@@ -3,6 +3,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 
 export default function MainLayout({
                                      children,
@@ -11,11 +12,11 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <AntdRegistry>
+      <AntdStyledComponentsRegistry>
         <Header></Header>
         {children}
         <Footer></Footer>
-      </AntdRegistry>
+      </AntdStyledComponentsRegistry>
     </>
   );
 }
