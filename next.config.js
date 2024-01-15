@@ -13,15 +13,20 @@ const isProd = ['production'].includes(process.env.NODE_ENV);
 // }
 // 转发
 const rewrites = () => {
-  return [
-    {
-      source: '/api/:slug*',
-      destination: process.env.PROXY,
-    },
-  ];
+  if (!isProd) {
+    return [
+      {
+        source: '/api/:slug*',
+        destination: process.env.PROXY,
+      },
+    ];
+  } else {
+    return []
+  }
 };
 const nextConfig = {
   rewrites,
+  output: 'export',
   reactStrictMode: false,
 };
 

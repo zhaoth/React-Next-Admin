@@ -5,7 +5,6 @@ const TIMEOUT = {
   DEFAULT: 3 * 60000,
   UPLOADING: 5 * 60000,
 };
-console.log(process.env.BASE_URL);
 export const request = requestCreator({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   timeout: TIMEOUT.DEFAULT,
