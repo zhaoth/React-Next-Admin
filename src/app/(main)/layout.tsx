@@ -15,7 +15,7 @@ export default function MainLayout({
                                      children,
                                    }: React.PropsWithChildren) {
   const router = useRouter();
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/welcome');
   const onClick: MenuProps['onClick'] = (event: any) => {
     if (event.key === 'logout') router.push('/login');
   };
@@ -51,6 +51,7 @@ export default function MainLayout({
                 <Dropdown
                   menu={{
                     items,
+                    mode:"inline",
                     onClick,
                   }}
                 >
@@ -71,7 +72,9 @@ export default function MainLayout({
             });
           }}
           menuItemRender={(item: any, dom) => (
-            <Link href={item.path}> {item.name}</Link>
+            <Link href={item.path} onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}> {item.name}</Link>
           )}
         >
           <PageContainer>

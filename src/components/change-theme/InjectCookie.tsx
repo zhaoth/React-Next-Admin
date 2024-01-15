@@ -1,4 +1,4 @@
-import { ChangeThemeProvider } from '@/components/change-theme/change-theme-context';
+import { ChangeThemeProvider } from '@/components/change-theme/ChangeThemeContext';
 import React from 'react';
 import { cookies } from 'next/headers';
 

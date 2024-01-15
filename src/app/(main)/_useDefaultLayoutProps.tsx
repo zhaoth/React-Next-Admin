@@ -11,7 +11,7 @@ const useDefaultLayoutProps = () => {
   const settings: ProSettings | undefined = {
     fixSiderbar: true,
     layout: 'mix',
-    title: false,
+    // title: false,
   };
   const props = {
     title: 'React Next Admin',

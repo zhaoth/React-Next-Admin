@@ -27,7 +27,6 @@ export default function Login() {
   const onSubmit = async () => {
     await sleep(3000);
     setAccess('canAccessSystem');
-    console.log(canAccessSystem);
     router.push('/dashboard');
     return true;
 
@@ -102,7 +101,7 @@ export default function Login() {
                     );
                   },
                 }}
-                placeholder={'密码: ant.design'}
+                placeholder={'密码: admin'}
                 rules={[
                   {
                     required: true,
