@@ -2,7 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 import { G, requestCreator } from '@siyuan0215/easier-axios-dsl';
 
 const TIMEOUT = {
-  DEFAULT: 60000,
+  DEFAULT: 3 * 60000,
   UPLOADING: 5 * 60000,
 };
 console.log(process.env.BASE_URL);

@@ -6,7 +6,6 @@ import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import useDefaultProps from '@/app/(main)/_useDefaultLayoutProps';
 import { InfoCircleFilled, LogoutOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import type { ProSettings } from '@ant-design/pro-components';
 import { Dropdown } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

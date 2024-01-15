@@ -25,11 +25,11 @@ export default function Login() {
     { label: '账户密码登录', key: 'account' },
   ];
   const onSubmit = async () => {
-    await sleep(10000);
+    await sleep(3000);
     setAccess('canAccessSystem');
     console.log(canAccessSystem);
     router.push('/dashboard');
-    return true
+    return true;
 
   };
   return (

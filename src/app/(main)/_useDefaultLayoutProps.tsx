@@ -33,7 +33,7 @@ const useDefaultLayoutProps = () => {
           path: '/dashboard',
           name: '展示',
           icon: <CrownFilled />,
-          access: false,
+          access: canAccessSystem,
         },
         {
           name: '列表页',
@@ -44,6 +44,11 @@ const useDefaultLayoutProps = () => {
             {
               path: '/list/ahook-table',
               name: '基于 ahook 的 table',
+              icon: <CrownFilled />,
+            },
+            {
+              path: '/list/pro-table',
+              name: '基于proTable的 table',
               icon: <CrownFilled />,
             },
           ],

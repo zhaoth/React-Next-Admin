@@ -18,8 +18,8 @@ const useAccessStore = create<AccessesState>()(
   persist(
     (set, get) => ({
       canAccessSystem: true,
-      setAccess: (newVal:any) => set((state: any) => ({
-        canAccessSystem: containsAny([newVal], ['canAccessSystem'])
+      setAccess: (newVal: any) => set((state: any) => ({
+        canAccessSystem: containsAny([newVal], ['canAccessSystem']),
       })),
     }),
     {
