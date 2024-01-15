@@ -5,6 +5,8 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import useAccessStore from '@/store/useAccessStore';
+import { sleep } from 'ahooks/es/utils/testingHelpers';
 
 type LoginType = 'phone' | 'account';
 
@@ -15,11 +17,20 @@ export default function Login() {
   const router = useRouter();
   const [loginType, setLoginType] = useState<LoginType>('account');
 
+  const canAccessSystem = useAccessStore((state) => state.canAccessSystem);
+
+  const setAccess = useAccessStore((state) => state.setAccess);
+
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
   ];
-  const onSubmit = () => {
+  const onSubmit = async () => {
+    await sleep(10000);
+    setAccess('canAccessSystem');
+    console.log(canAccessSystem);
     router.push('/dashboard');
+    return true
+
   };
   return (
     <ProConfigProvider hashed={false}>
