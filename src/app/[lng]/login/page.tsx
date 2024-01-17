@@ -7,17 +7,21 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
+import { useTranslation } from '@/i18n/client';
 
 type LoginType = 'phone' | 'account';
 
-export default function Login() {
+export default function Login({ params: { lng } }:{
+  params:{
+    lng:any
+  }
+}) {
 
+  const { t } = useTranslation(lng, 'login')
   const { token } = theme.useToken();
 
   const router = useRouter();
   const [loginType, setLoginType] = useState<LoginType>('account');
-
-  const canAccessSystem = useAccessStore((state) => state.canAccessSystem);
 
   const setAccess = useAccessStore((state) => state.setAccess);
 
@@ -27,7 +31,7 @@ export default function Login() {
   const onSubmit = async () => {
     await sleep(3000);
     setAccess('canAccessSystem');
-    router.push('/dashboard');
+    router.push(`/dashboard`);
     return true;
 
   };
@@ -117,7 +121,7 @@ export default function Login() {
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
-              自动登录
+              {t('title')}自动登录
             </ProFormCheckbox>
             <a
               style={{

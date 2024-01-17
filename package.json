@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
+    "build:static": "next build && next export",
     "start": "next start -p 3100",
     "lint": "next lint",
     "prettier": "prettier --write .",
@@ -14,12 +15,17 @@
     "@ant-design/nextjs-registry": "^1.0.0",
     "@ant-design/pro-components": "^2.6.43",
     "@siyuan0215/easier-axios-dsl": "^1.1.11",
+    "accept-language": "^3.0.18",
     "ahooks": "^3.7.8",
     "antd": "^5.12.8",
     "axios": "^0.24.0",
+    "i18next": "^23.7.16",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-resources-to-backend": "^1.2.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-i18next": "^14.0.0",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
 'use client';
-import '@/app/globals.css';
+import '@/app/[lng]/globals.css';
 import React, { useState } from 'react';
 import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import useDefaultProps from '@/app/(main-layout)/_useDefaultLayoutProps';
+import useDefaultProps from '@/app/[lng]/(main-layout)/_useDefaultLayoutProps';
 import { InfoCircleFilled, LogoutOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
