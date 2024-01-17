@@ -3,7 +3,7 @@ import '@/app/globals.css';
 import React, { useState } from 'react';
 import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import useDefaultProps from '@/app/(main)/_useDefaultLayoutProps';
+import useDefaultProps from '@/app/(main-layout)/_useDefaultLayoutProps';
 import { InfoCircleFilled, LogoutOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
@@ -51,7 +51,7 @@ export default function MainLayout({
                 <Dropdown
                   menu={{
                     items,
-                    mode:"inline",
+                    mode: 'inline',
                     onClick,
                   }}
                 >

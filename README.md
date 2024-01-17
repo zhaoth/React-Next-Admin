@@ -44,29 +44,38 @@ https://react-next-admin.pages.dev/login
 
 module.exports = nextConfig
 ```
+
 运行 next build 后，Next.js 将生成一个 out 文件夹，其中包含应用程序的 HTML/CSS/JS
 
->注意：APP路使用next/router是会出现 router 未挂载的问题，需要使用next/navigation这个钩子函数
+> 注意：APP路使用next/router是会出现 router 未挂载的问题，需要使用next/navigation这个钩子函数
 
 ### Docker部署
 
 #### 构建 docker 镜像
+
 ```docker
  docker image build -t react-next-admin .
  
  docker image ls
 ```
+
 #### 运行镜像
+
 ```docker
 docker container run -d -p 8080:4000 -it react-next-admin
 ```
+
 ### NodeJS环境部署
+
 > 注意
-运行 npm run start 来构建你的应用时，next.config.js 中 output: 'export' 需要去掉
+> 运行 npm run start 来构建你的应用时，next.config.js 中 output: 'export' 需要去掉
+
 ```shell
 npm run build
 ```
+
 运行 npm run start 启动 Node.js 服务器
+
 ```shell
 npm run start
 ```

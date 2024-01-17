@@ -1,10 +1,10 @@
-import { RootLayout } from '@/components';
+import { MainLayout } from '@/components';
 import React from 'react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <RootLayout>{children}</RootLayout>
+      <MainLayout>{children}</MainLayout>
     </>
   );
 }

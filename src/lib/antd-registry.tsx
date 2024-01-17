@@ -1,19 +1,14 @@
 'use client';
 import React from 'react';
-import { App, ConfigProvider, theme } from 'antd';
+import { App, ConfigProvider } from 'antd';
 import 'antd/dist/reset.css';
-import { ChangeThemeContext } from '@/components/change-theme/ChangeThemeContext';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 const AntdConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const select_theme = ChangeThemeContext.useStore();
 
   return (
     <ConfigProvider
       componentSize="large"
-      theme={{
-        algorithm: select_theme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
-      }}
     >
       <div style={{ height: '100vh' }}>{children}</div>
     </ConfigProvider>

@@ -21,7 +21,7 @@ const rewrites = () => {
       },
     ];
   } else {
-    return []
+    return [];
   }
 };
 const nextConfig = {
