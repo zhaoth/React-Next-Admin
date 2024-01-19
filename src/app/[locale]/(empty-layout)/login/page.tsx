@@ -7,22 +7,18 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
-import { useTranslations } from 'next-intl'
-import { PageProps, Props } from '@/typing/Layout';
+import { useTranslations } from 'next-intl';
+import { PageProps } from '@/typing/Layout';
+import { staticRouter } from '@/static/staticRouter';
 
 type LoginType = 'phone' | 'account';
 
 export default function Login({ params: { locale } }: PageProps) {
-
   const { token } = theme.useToken();
-
   const router = useRouter();
   const [loginType, setLoginType] = useState<LoginType>('account');
-
-  const canAccessSystem = useAccessStore((state) => state.canAccessSystem);
-
   const setAccess = useAccessStore((state) => state.setAccess);
-  const t = useTranslations('login')
+  const t = useTranslations('login');
 
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
@@ -30,7 +26,7 @@ export default function Login({ params: { locale } }: PageProps) {
   const onSubmit = async () => {
     await sleep(1000);
     setAccess('canAccessSystem');
-    router.push(`/${locale}/dashboard`);
+    router.push(`/${locale}/${staticRouter.dashboard}`);
     return true;
 
   };

@@ -8,12 +8,12 @@ export const metadata: { title: string, description: string } = {
   description: '',
 };
 
-export default async function EmptyLayout({ children}: RootProps) {
+export default async function RootLayout({ children }: RootProps) {
   return (
-    <html lang='en'>
+    <html lang="en">
     <body>
     <AntdStyledComponentsRegistry>
-        {children}
+      {children}
     </AntdStyledComponentsRegistry>
     </body>
     </html>
