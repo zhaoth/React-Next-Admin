@@ -4,7 +4,7 @@ import useAccessStore from '@/store/useAccessStore';
 import type { ProSettings } from '@ant-design/pro-components';
 import React from 'react';
 
-const useDefaultLayoutProps = () => {
+const useDefaultLayoutProps = (locale:string) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const canAccessSystem = useAccessStore((state) => state.canAccessSystem);
   // 设置
@@ -21,7 +21,7 @@ const useDefaultLayoutProps = () => {
       pathname: '/',
     },
     route: {
-      path: '/',
+      path: `/`,
       routes: [
         {
           path: '/welcome',

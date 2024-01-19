@@ -1,18 +1,19 @@
 import '@/app/globals.css';
 import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import React from 'react';
+import { RootProps } from '@/typing/Layout';
 
 export const metadata: { title: string, description: string } = {
   title: 'React Next Admin',
   description: '',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function EmptyLayout({ children}: RootProps) {
   return (
-    <html lang="en">
+    <html lang='en'>
     <body>
     <AntdStyledComponentsRegistry>
-      {children}
+        {children}
     </AntdStyledComponentsRegistry>
     </body>
     </html>

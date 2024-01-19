@@ -7,10 +7,12 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
+import { useTranslations } from 'next-intl'
+import { PageProps, Props } from '@/typing/Layout';
 
 type LoginType = 'phone' | 'account';
 
-export default function Login() {
+export default function Login({ params: { locale } }: PageProps) {
 
   const { token } = theme.useToken();
 
@@ -20,14 +22,15 @@ export default function Login() {
   const canAccessSystem = useAccessStore((state) => state.canAccessSystem);
 
   const setAccess = useAccessStore((state) => state.setAccess);
+  const t = useTranslations('login')
 
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
   ];
   const onSubmit = async () => {
-    await sleep(3000);
+    await sleep(1000);
     setAccess('canAccessSystem');
-    router.push('/dashboard');
+    router.push(`/${locale}/dashboard`);
     return true;
 
   };
@@ -117,7 +120,7 @@ export default function Login() {
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
-              自动登录
+              {t('auto')}
             </ProFormCheckbox>
             <a
               style={{

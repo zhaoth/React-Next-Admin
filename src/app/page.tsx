@@ -1,14 +1,10 @@
 'use client';
 
-import { redirect, usePathname } from 'next/navigation';
-
+import { redirect } from 'next/navigation';
+import useAccessStore from '@/store/useAccessStore';
+import useSettingStore from '@/store/useSettingStore';
 export default function Home() {
-  // 静态 build 模式下 不能用 next/router 需要用next/navigatio
-  if (usePathname() === '/') {
-    redirect('/login');
-  }
-  return (
-    <>
-    </>
-  );
+  const defaultLocale = useSettingStore((state) => state.defaultLocale);
+  // 静态 build 模式下 不能用 next/router 需要用next/navigation
+  redirect(`/${defaultLocale}/login`);
 }
