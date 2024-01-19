@@ -6,22 +6,14 @@ import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { InfoCircleFilled, LogoutOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
-import { notFound, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Props } from '@/typing/Layout';
 import { NextIntlClientProvider } from 'next-intl';
-import en from '@/i18n/en.json';
-import zh from '@/i18n/zh.json';
+import en from '@/i18n/en';
+import zh from '@/i18n/zh';
 import useMainLayoutProps from '@/components/layouts/useMainLayoutProps';
 import { staticRouter } from '@/static/staticRouter';
-
-//function to get the translations
-function getMessages(locale: string) {
-  try {
-    return (import(`@/i18n/${locale}.json`));
-  } catch (error) {
-    notFound();
-  }
-}
+import { timeZone } from '@/static/locales';
 
 export default function MainLayout({ children, params: { locale } }: Props) {
   const router = useRouter();
@@ -42,7 +34,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
   ];
   const messages = locale === 'en' ? en : zh;
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone}>
       <AntdStyledComponentsRegistry>
         <div
           id="pro-layout"

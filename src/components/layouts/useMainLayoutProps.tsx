@@ -22,16 +22,16 @@ const useDefaultLayoutProps = () => {
       pathname: staticRouter.root,
     },
     route: {
-      path:  staticRouter.root,
+      path: staticRouter.root,
       routes: [
         {
-          path:  staticRouter.welcome,
+          path: staticRouter.welcome,
           name: '欢迎',
           icon: <SmileFilled />,
           access: canAccessSystem,
         },
         {
-          path:  staticRouter.dashboard,
+          path: staticRouter.dashboard,
           name: '展示',
           icon: <CrownFilled />,
           access: canAccessSystem,

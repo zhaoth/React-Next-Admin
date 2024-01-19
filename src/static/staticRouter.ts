@@ -5,7 +5,7 @@ export const staticRouter = {
   notFound: '/not-found',
   dashboard: '/dashboard',
   dictionary: '/dictionary',
-  list:'/list',
+  list: '/list',
   ahookTable: '/list/ahook-table',
   proTable: '/list/pro-table',
 };

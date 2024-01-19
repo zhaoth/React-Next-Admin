@@ -3,9 +3,9 @@ import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { Props } from '@/typing/Layout';
-import { notFound } from 'next/navigation';
-import en from '@/i18n/en.json';
-import zh from '@/i18n/zh.json';
+import en from '@/i18n/en';
+import zh from '@/i18n/zh';
+import { timeZone } from '@/static/locales';
 
 export const metadata: { title: string, description: string } = {
   title: 'React Next Admin',
@@ -15,7 +15,7 @@ export const metadata: { title: string, description: string } = {
 export default function EmptyLayout({ children, params: { locale } }: Props) {
   const messages = locale === 'en' ? en : zh;
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone}>
       <AntdStyledComponentsRegistry>
         {children}
       </AntdStyledComponentsRegistry>

@@ -37,7 +37,7 @@ export default function Login({ params: { locale } }: PageProps) {
           onFinish={onSubmit}
           logo="https://randomuser.me/api/portraits/lego/1.jpg"
           title="React Next Admin"
-          subTitle="基于 nextjs 的一站式 react 后端框架"
+          subTitle="基于 nextjs 的一站式 react前端框架"
         >
           <Tabs
             centered
