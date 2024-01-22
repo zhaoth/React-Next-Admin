@@ -3,13 +3,14 @@
 import { Tabs, theme } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
 import { useTranslations } from 'next-intl';
 import { PageProps } from '@/typing/Layout';
 import { staticRouter } from '@/static/staticRouter';
+import { ChangeLanguage } from '@/components';
 
 type LoginType = 'phone' | 'account';
 
@@ -19,7 +20,6 @@ export default function Login({ params: { locale } }: PageProps) {
   const [loginType, setLoginType] = useState<LoginType>('account');
   const setAccess = useAccessStore((state) => state.setAccess);
   const t = useTranslations('login');
-
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
   ];
@@ -30,6 +30,7 @@ export default function Login({ params: { locale } }: PageProps) {
     return true;
 
   };
+
   return (
     <ProConfigProvider hashed={false}>
       <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }}>
@@ -38,6 +39,9 @@ export default function Login({ params: { locale } }: PageProps) {
           logo="https://randomuser.me/api/portraits/lego/1.jpg"
           title="React Next Admin"
           subTitle="基于 nextjs 的一站式 react前端框架"
+          actions={
+            <ChangeLanguage />
+          }
         >
           <Tabs
             centered

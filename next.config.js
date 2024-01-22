@@ -28,6 +28,9 @@ const nextConfig = {
   rewrites,
   output: 'export',
   reactStrictMode: false,
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;

@@ -1,5 +1,5 @@
 'use client';
-import { CrownFilled, SmileFilled, TabletFilled } from '@ant-design/icons';
+import { CrownFilled, SmileFilled } from '@ant-design/icons';
 import useAccessStore from '@/store/useAccessStore';
 import type { ProSettings } from '@ant-design/pro-components';
 import React from 'react';
@@ -26,30 +26,29 @@ const useDefaultLayoutProps = () => {
       routes: [
         {
           path: staticRouter.welcome,
-          name: '欢迎',
+          name: 'welcome',
           icon: <SmileFilled />,
           access: canAccessSystem,
         },
         {
           path: staticRouter.dashboard,
-          name: '展示',
+          name: 'dashboard',
           icon: <CrownFilled />,
           access: canAccessSystem,
         },
         {
-          name: '列表页',
-          icon: <TabletFilled />,
+          name: 'list',
           path: staticRouter.list,
           access: canAccessSystem,
           routes: [
             {
               path: staticRouter.ahookTable,
-              name: '基于 ahook 的 table',
+              name: 'ahookList',
               icon: <CrownFilled />,
             },
             {
               path: staticRouter.proTable,
-              name: '基于proTable的 table',
+              name: 'proList',
               icon: <CrownFilled />,
             },
           ],
