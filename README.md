@@ -1,4 +1,4 @@
-这是一个基于 React18、NextJS、 Ant-Design、TypeScript 的后台解决方案，目标是为开发中大型项目提供开箱即用的解决方案
+这是一个基于 React18、NextJS14、 Ant-Design、TypeScript 的前台解决方案，目标是为开发中大型项目提供开箱即用的解决方案
 
 ## 运行项目
 
@@ -79,3 +79,14 @@ npm run build
 ```shell
 npm run start
 ```
+## 国际化
+由于 nextjs 有不同的路由模式和打包模式分别对应的国际化方式不一样，目前本项目的国际化方式是基于 next-intl 和 APP Router并支持静态导出模式（基于服务端的国家化可以参考分支feature/i18n）
+
+lib 文件夹下提供了 language.ts的封装方法，如果页面需要跳转需要使用该工具库的路由，可以很好的实现页面国际化的跳转
+
+```javascript
+
+import { useRouter } from '@/lib/language';
+const router = useRouter();
+```
+

@@ -4,7 +4,7 @@ import { Tabs, theme } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/lib/language';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
 import { useTranslations } from 'next-intl';
@@ -26,7 +26,7 @@ export default function Login({ params: { locale } }: PageProps) {
   const onSubmit = async () => {
     await sleep(1000);
     setAccess('canAccessSystem');
-    router.push(`/${locale}/${staticRouter.dashboard}`);
+    router.push(`${staticRouter.welcome}`);
     return true;
 
   };

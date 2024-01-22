@@ -20,7 +20,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
   }, []);
 
   const router = useRouter();
-  const [pathname, setPathname] = useState(`/${locale}${staticRouter.welcome}`);
+  const [pathname, setPathname] = useState(`${staticRouter.welcome}`);
   const onClick: MenuProps['onClick'] = (event: any) => {
     if (event.key === 'logout') router.push(`${staticRouter.login}`);
   };
@@ -86,7 +86,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                 return (
                   <Navigation item={item} onNavCLick={() => {
                     router.push(`${item.path}`);
-                    setPathname(`/${locale}${item.path || staticRouter.welcome}`);
+                    setPathname(`${item.path || staticRouter.welcome}`);
                   }}></Navigation>
                 );
               }}
