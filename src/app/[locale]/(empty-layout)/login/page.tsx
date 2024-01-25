@@ -28,15 +28,13 @@ export default function Login({ params: { locale } }: PageProps) {
     setAccess('canAccessSystem');
     router.push(`${staticRouter.welcome}`);
     return true;
-
   };
 
   return (
     <ProConfigProvider hashed={false}>
-      <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }}>
+      <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }} className="bg-[url('/bg.jpg')] bg-cover">
         <LoginForm
           onFinish={onSubmit}
-          logo="https://randomuser.me/api/portraits/lego/1.jpg"
           title="React Next Admin"
           subTitle="基于 nextjs 的一站式 react前端框架"
           actions={
@@ -47,7 +45,7 @@ export default function Login({ params: { locale } }: PageProps) {
             centered
             activeKey={loginType}
             items={tabItems}
-            onChange={(activeKey) => setLoginType(activeKey as LoginType)}
+            onChange={(activeKey:string) => setLoginType(activeKey as LoginType)}
           >
           </Tabs>
           {loginType === 'account' && (

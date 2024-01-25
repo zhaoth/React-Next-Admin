@@ -17,7 +17,7 @@ const useDefaultLayoutProps = () => {
   const props = {
     title: 'React Next Admin',
     siderWidth: 216,
-    logo: 'https://randomuser.me/api/portraits/lego/1.jpg',
+    logo: false,
     location: {
       pathname: staticRouter.root,
     },
