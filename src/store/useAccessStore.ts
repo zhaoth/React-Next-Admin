@@ -1,10 +1,6 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-
-// Custom types for theme
-
-
 type AccessesState = {
   canAccessSystem: boolean
   setAccess: (newVal: string) => void;
@@ -16,10 +12,10 @@ export function containsAny(arr1: string[], arr2: string[]): boolean {
 
 const useAccessStore = create<AccessesState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       canAccessSystem: true,
       setAccess: (newVal: any) => set((state: any) => ({
-        canAccessSystem: containsAny([newVal], ['canAccessSystem']),
+        canAccessSystem: state.canAccessSystem = containsAny([newVal], ['canAccessSystem']),
       })),
     }),
     {

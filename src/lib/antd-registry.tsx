@@ -21,7 +21,7 @@ const AntdConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) => 
       setLocal(zhCN)
       dayjs.locale('zh-cn');
     }
-  }, []);
+  }, [defaultLocale]);
   return (
     <ConfigProvider
       componentSize="large"

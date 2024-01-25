@@ -24,7 +24,7 @@ export const request = requestCreator({
   ],
   responseInterceptors: [
     (response) => {
-      const { data, status } = response;
+      const { status } = response;
 
       if (status === StatusCodes.OK) {
         return response;

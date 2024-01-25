@@ -16,17 +16,17 @@ interface AuthState {
 
 const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       isAuthenticated: false,
       user: null,
       token: null,
       setToken: (newVal) => set((state: any) => ({
         token: state.token = newVal,
       })),
-      login: async (email, password) => {
+      login: async () => {
         // Login user code
       },
-      register: async (userInfo) => {
+      register: async () => {
         // Registering user code
       },
       logout: () => {

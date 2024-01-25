@@ -1,6 +1,6 @@
 'use client';
 import { DownOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
+import type { ProColumns, RequestData } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import Apis from '@/apis';
@@ -32,14 +32,15 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-// @ts-ignore
-const getTableData = async (params, sort, filter): Promise<any> => {
+const getTableData = async (params: {
+  pageSize?: number;
+  current?: number;
+}):Promise<RequestData<TableListItem>> => {
   const res = await Apis.getTableList({
     results: 55,
     page: params.current,
     size: params.pageSize,
   });
-  console.log(res);
   return ({
     success: true,
     total: res.info.results || 0,

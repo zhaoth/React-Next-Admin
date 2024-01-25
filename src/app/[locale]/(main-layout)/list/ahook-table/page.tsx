@@ -18,8 +18,9 @@ interface Result {
   list: Item[];
 }
 
-// @ts-ignore
-const getTableData = async ({ current, pageSize }): Promise<Result> => {
+const getTableData = async ({ current, pageSize }:{
+current:number,pageSize:number
+}): Promise<Result> => {
   const res = await Apis.getTableList({
     results: 55,
     page: current,

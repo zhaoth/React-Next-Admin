@@ -2,9 +2,6 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { defaultLocale, locales } from '@/static/locales';
 
-
-// Custom types for theme
-
 interface SettingState {
   defaultLocale: string;
   locales: string[];

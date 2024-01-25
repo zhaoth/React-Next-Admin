@@ -73,8 +73,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
               actionsRender={(props) => {
                 if (props.isMobile) return [];
                 return [
-                  // eslint-disable-next-line react/jsx-key
-                  <ChangeLanguage></ChangeLanguage>,
+                  <ChangeLanguage key='ChangeLanguage'></ChangeLanguage>,
                 ];
               }}
               menuDataRender={(menuData) => {
