@@ -1,7 +1,8 @@
 export default {
   welcome: 'Welcome',
   dashboard: 'Dashboard',
-  list: 'List',
+  demo: 'Demo',
   ahookList: 'ahookList',
   proList: 'proList',
+  proForm: 'proFrom',
 };

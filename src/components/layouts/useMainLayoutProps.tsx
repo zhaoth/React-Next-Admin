@@ -37,7 +37,7 @@ const useDefaultLayoutProps = () => {
           access: canAccessSystem,
         },
         {
-          name: 'list',
+          name: 'demo',
           path: staticRouter.list,
           access: canAccessSystem,
           routes: [
@@ -49,6 +49,11 @@ const useDefaultLayoutProps = () => {
             {
               path: staticRouter.proTable,
               name: 'proList',
+              icon: <CrownFilled />,
+            },
+            {
+              path: staticRouter.proForm,
+              name: 'proForm',
               icon: <CrownFilled />,
             },
           ],

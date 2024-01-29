@@ -1,9 +1,10 @@
 'use client';
 import { DownOutlined } from '@ant-design/icons';
-import type { ProColumns, RequestData } from '@ant-design/pro-components';
+import { ProColumns, RequestData } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import Apis from '@/apis';
+import ModalFormDemo from '@/app/[locale]/(main-layout)/list/pro-table/(components)/ModalForm';
 
 export type TableListItem = {
   name: string;
@@ -50,30 +51,30 @@ const getTableData = async (params: {
 
 export default function ProTaleDemo() {
   return (
-    <ProTable<TableListItem>
-      columns={columns}
-      request={getTableData}
-      rowKey="phone"
-      pagination={{
-        pageSize: 10,
-        showQuickJumper: true,
-      }}
-      search={{
-        optionRender: false,
-        collapsed: false,
-      }}
-      dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button key="out">
-          导出数据
-          <DownOutlined />
-        </Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
-      ]}
-    />
+     <>
+       <ProTable<TableListItem>
+         columns={columns}
+         request={getTableData}
+         rowKey="phone"
+         pagination={{
+           pageSize: 10,
+           showQuickJumper: true,
+         }}
+         search={{
+           optionRender: false,
+           collapsed: false,
+         }}
+         dateFormatter="string"
+         headerTitle="表格标题"
+         toolBarRender={() => [
+           <Button key="show">查看日志</Button>,
+           <Button key="out">
+             导出数据
+             <DownOutlined />
+           </Button>,
+           <ModalFormDemo key='ModalFormDemo' />
+         ]}
+       />
+     </>
   );
 };
