@@ -26,7 +26,7 @@ yarn dev
 
 ## 线上地址
 
-https://react-next-admin.pages.dev/login
+https://react-next-admin.pages.dev
 
 ## 项目搭建
 

@@ -11,6 +11,8 @@ import { useTranslations } from 'next-intl';
 import { PageProps } from '@/typing/Layout';
 import { staticRouter } from '@/static/staticRouter';
 import { ChangeLanguage } from '@/components';
+import { login } from '@/static/emits';
+import { useEvent } from '@/hooks/useEvent';
 
 type LoginType = 'phone' | 'account';
 
@@ -23,9 +25,11 @@ export default function Login({ params: { locale } }: PageProps) {
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
   ];
+  const event = useEvent()
   const onSubmit = async () => {
     await sleep(1000);
     setAccess('canAccessSystem');
+    event.emitEvent(login, {login:'我登录了'})
     router.push(`${staticRouter.welcome}`);
     return true;
   };

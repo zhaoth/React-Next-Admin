@@ -61,7 +61,6 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                     <Dropdown
                       menu={{
                         items,
-                        mode: 'inline',
                         onClick,
                       }}
                     >
