@@ -1,1 +1,1 @@
-export const login = Symbol('LOGIN')
+export const login = Symbol('LOGIN');

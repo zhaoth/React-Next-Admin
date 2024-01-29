@@ -8,17 +8,18 @@ import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import useSettingStore from '@/store/useSettingStore';
 import { locales } from '@/static/locales';
+
 type Locale = ConfigProviderProps['locale'];
 const AntdConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const defaultLocale = useSettingStore((state) => state.defaultLocale);
   const [locale, setLocal] = useState<Locale>(enUS);
   useEffect(() => {
     dayjs.locale('en');
-    if(defaultLocale === locales[0]){
-      setLocal(enUS)
+    if (defaultLocale === locales[0]) {
+      setLocal(enUS);
       dayjs.locale('en');
-    }else{
-      setLocal(zhCN)
+    } else {
+      setLocal(zhCN);
       dayjs.locale('zh-cn');
     }
   }, [defaultLocale]);

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import {
   ProForm,
   ProFormDatePicker,
@@ -10,7 +10,7 @@ import {
   ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-components';
-import { Col, Row, Space, message } from 'antd';
+import { Col, message, Row, Space } from 'antd';
 import type { FormLayout } from 'antd/lib/form/Form';
 import { useState } from 'react';
 
@@ -24,7 +24,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default function ProFormDemo(){
+export default function ProFormDemo() {
   const [formLayoutType, setFormLayoutType] = useState<FormLayout>(
     LAYOUT_TYPE_HORIZONTAL,
   );

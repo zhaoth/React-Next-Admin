@@ -8,7 +8,7 @@ export default function NotServer() {
       status="500"
       title="500"
       subTitle="Sorry, something went wrong."
-      extra={ <Link href={`${staticRouter.root}`}>Return Home</Link>}
+      extra={<Link href={`${staticRouter.root}`}>Return Home</Link>}
     />
   );
 }

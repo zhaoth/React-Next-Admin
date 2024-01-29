@@ -8,5 +8,5 @@ export const staticRouter = {
   list: '/list',
   ahookTable: '/list/ahook-table',
   proTable: '/list/pro-table',
-  proForm: '/list/pro-form'
+  proForm: '/list/pro-form',
 };

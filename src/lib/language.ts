@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation';
 import { createLocalizedPathnamesNavigation } from 'next-intl/navigation';
 import { locales } from '@/static/locales';
 import { staticRouter } from '@/static/staticRouter';

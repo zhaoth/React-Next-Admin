@@ -25,18 +25,19 @@ export default function Login({ params: { locale } }: PageProps) {
   const tabItems = [
     { label: '账户密码登录', key: 'account' },
   ];
-  const event = useEvent()
+  const event = useEvent();
   const onSubmit = async () => {
     await sleep(1000);
     setAccess('canAccessSystem');
-    event.emitEvent(login, {login:'我登录了'})
+    event.emitEvent(login, { login: '我登录了' });
     router.push(`${staticRouter.welcome}`);
     return true;
   };
 
   return (
     <ProConfigProvider hashed={false}>
-      <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }} className="bg-[url('/bg.jpg')] bg-cover">
+      <div style={{ backgroundColor: token.colorBgContainer, height: '100vh' }}
+           className="bg-[url('/bg.jpg')] bg-cover">
         <LoginForm
           onFinish={onSubmit}
           title="React Next Admin"
@@ -49,7 +50,7 @@ export default function Login({ params: { locale } }: PageProps) {
             centered
             activeKey={loginType}
             items={tabItems}
-            onChange={(activeKey:string) => setLoginType(activeKey as LoginType)}
+            onChange={(activeKey: string) => setLoginType(activeKey as LoginType)}
           >
           </Tabs>
           {loginType === 'account' && (

@@ -1,11 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import {
-  ModalForm,
-  ProForm,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ModalForm, ProForm, ProFormDateRangePicker, ProFormSelect, ProFormText } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -16,7 +10,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default function ModalFormDemo()  {
+export default function ModalFormDemo() {
   const [form] = Form.useForm<{ name: string; company: string }>();
   return (
     <ModalForm<{
