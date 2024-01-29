@@ -72,7 +72,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
               actionsRender={(props) => {
                 if (props.isMobile) return [];
                 return [
-                  <ChangeLanguage key='ChangeLanguage'></ChangeLanguage>,
+                  <ChangeLanguage key="ChangeLanguage"></ChangeLanguage>,
                 ];
               }}
               menuDataRender={(menuData) => {
@@ -81,13 +81,22 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                 });
               }}
               menuItemRender={(item: any) => {
+                console.log(item);
                 return (
                   <Navigation item={item} onNavCLick={() => {
-                    router.push(`${item.path}`);
                     setPathname(`${item.path || staticRouter.welcome}`);
+                    if (!item.children) {
+                      router.push(`${item.path}`);
+                    }
                   }}></Navigation>
                 );
               }}
+              subMenuItemRender={(item, dom) => (
+                <Navigation item={item} onNavCLick={() => {
+                  router.push(`${item.path}`);
+                  setPathname(`${item.path || staticRouter.welcome}`);
+                }}></Navigation>
+              )}
             >
               <PageContainer>
                 <ProCard
