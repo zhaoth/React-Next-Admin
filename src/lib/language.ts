@@ -9,7 +9,7 @@ export function generateStaticParams() {
 export const localePrefix = undefined;
 export const pathnames = {} as any;
 
-export const { Link, redirect, usePathname, useRouter } =
+export const { Link, redirect, usePathname, useRouter, getPathname } =
   createLocalizedPathnamesNavigation({
     locales,
     pathnames,

@@ -5,7 +5,7 @@ import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { LogoutOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps } from 'antd';
-import { useRouter } from '@/lib/language';
+import { usePathname, useRouter } from '@/lib/language';
 import { Props } from '@/typing/Layout';
 import { NextIntlClientProvider } from 'next-intl';
 import en from '@/i18n/en';
@@ -20,7 +20,8 @@ export default function MainLayout({ children, params: { locale } }: Props) {
   }, []);
 
   const router = useRouter();
-  const [pathname, setPathname] = useState(`${staticRouter.welcome}`);
+  const currentRoute = usePathname() as string;
+  const [pathname, setPathname] = useState(currentRoute || `${staticRouter.welcome}`);
   const onClick: MenuProps['onClick'] = (event: any) => {
     if (event.key === 'logout') router.push(`${staticRouter.login}`);
   };
@@ -69,6 +70,9 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                   );
                 },
               }}
+              itemRender={(route: any, params, routes, paths) => {
+                return <Navigation name={route.title}></Navigation>;
+              }}
               actionsRender={(props) => {
                 if (props.isMobile) return [];
                 return [
@@ -81,24 +85,30 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                 });
               }}
               menuItemRender={(item: any) => {
-                console.log(item);
                 return (
-                  <Navigation item={item} onNavCLick={() => {
+                  <Navigation name={item.name} onNavCLick={() => {
                     setPathname(`${item.path || staticRouter.welcome}`);
+                    router.push(`${item.path}`);
+                  }}></Navigation>
+                );
+              }}
+              subMenuItemRender={(item, dom) => {
+                return (
+                  <Navigation name={item.name} onNavCLick={() => {
                     if (!item.children) {
+                      setPathname(`${item.path || staticRouter.welcome}`);
                       router.push(`${item.path}`);
                     }
                   }}></Navigation>
                 );
               }}
-              subMenuItemRender={(item, dom) => (
-                <Navigation item={item} onNavCLick={() => {
-                  router.push(`${item.path}`);
-                  setPathname(`${item.path || staticRouter.welcome}`);
-                }}></Navigation>
-              )}
             >
-              <PageContainer>
+              <PageContainer
+                header={
+                  {
+                    title: false,
+                  }
+                }>
                 <ProCard
                   style={{
                     height: '100vh',
