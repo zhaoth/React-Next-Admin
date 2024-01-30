@@ -1,10 +1,10 @@
 'use client';
 import '@/app/globals.css';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { LogoutOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps } from 'antd';
+import { Dropdown, MenuProps, Spin } from 'antd';
 import { usePathname, useRouter } from '@/lib/language';
 import { Props } from '@/typing/Layout';
 import { NextIntlClientProvider } from 'next-intl';
@@ -70,7 +70,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                   );
                 },
               }}
-              itemRender={(route: any, params, routes, paths) => {
+              itemRender={(route: any) => {
                 return <Navigation name={route.title}></Navigation>;
               }}
               actionsRender={(props) => {
@@ -92,7 +92,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                   }}></Navigation>
                 );
               }}
-              subMenuItemRender={(item, dom) => {
+              subMenuItemRender={(item) => {
                 return (
                   <Navigation name={item.name} onNavCLick={() => {
                     if (!item.children) {
@@ -103,21 +103,24 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                 );
               }}
             >
-              <PageContainer
-                header={
-                  {
-                    title: false,
-                  }
-                }>
-                <ProCard
-                  style={{
-                    height: '100vh',
-                    minHeight: 800,
-                  }}
-                >
-                  {children}
-                </ProCard>
-              </PageContainer>
+              <Suspense fallback={<Spin />}>
+                <PageContainer
+                  header={
+                    {
+                      title: false,
+                    }
+                  }>
+                  <ProCard
+                    style={{
+                      height: '100vh',
+                      minHeight: 800,
+                    }}
+                  >
+                    {children}
+                  </ProCard>
+                </PageContainer>
+              </Suspense>
+
             </ProLayout>
           </div>
         </NoSSR>
