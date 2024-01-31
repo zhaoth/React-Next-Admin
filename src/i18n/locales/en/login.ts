@@ -1,3 +1,3 @@
-export default {
+export const login = {
   auto: 'Automatic login',
 };

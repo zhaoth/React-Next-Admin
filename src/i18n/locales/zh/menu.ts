@@ -1,4 +1,4 @@
-export default {
+export const menu = {
   welcome: '欢迎',
   dashboard: '看板',
   demo: '演示',

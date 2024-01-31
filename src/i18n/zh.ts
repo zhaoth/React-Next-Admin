@@ -1,7 +1,7 @@
-import login from './locales/zh/login';
-import menu from '@/i18n/locales/zh/menu';
+import { login } from '@/i18n/locales/zh/login';
+import { menu } from '@/i18n/locales/zh/menu';
 
-export default {
+export const zh ={
   login,
   menu,
 };

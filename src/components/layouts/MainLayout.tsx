@@ -8,12 +8,12 @@ import { Dropdown, MenuProps, Spin } from 'antd';
 import { usePathname, useRouter } from '@/lib/language';
 import { Props } from '@/typing/Layout';
 import { NextIntlClientProvider } from 'next-intl';
-import en from '@/i18n/en';
-import zh from '@/i18n/zh';
 import useMainLayoutProps from '@/components/layouts/useMainLayoutProps';
 import { staticRouter } from '@/static/staticRouter';
 import { timeZone } from '@/static/locales';
 import { ChangeLanguage, MockComponent, Navigation, NoSSR } from '@/components';
+import { en } from '@/i18n/en';
+import { zh } from '@/i18n/zh';
 
 export default function MainLayout({ children, params: { locale } }: Props) {
   useEffect(() => {
