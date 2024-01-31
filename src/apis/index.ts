@@ -46,6 +46,7 @@ import { generatorAPIS } from '@/lib/request';
 
 enum apis {
   getTableList = 'GET api query:results,page,size',
+  getUsers = 'POST user/login'
 }
 
 export default generatorAPIS<typeof apis>(apis);

@@ -10,3 +10,4 @@ export { default as NoSSR } from './NoSSR';
 export { default as Link } from './Link';
 export { default as Navigation } from './Navigation';
 export { default as ChangeLanguage } from './ChangeLanguage';
+export { default as MockComponent } from './MockComponent';

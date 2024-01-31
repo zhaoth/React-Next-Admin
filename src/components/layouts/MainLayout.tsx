@@ -13,7 +13,7 @@ import zh from '@/i18n/zh';
 import useMainLayoutProps from '@/components/layouts/useMainLayoutProps';
 import { staticRouter } from '@/static/staticRouter';
 import { timeZone } from '@/static/locales';
-import { ChangeLanguage, Navigation, NoSSR } from '@/components';
+import { ChangeLanguage, MockComponent, Navigation, NoSSR } from '@/components';
 
 export default function MainLayout({ children, params: { locale } }: Props) {
   useEffect(() => {
@@ -41,6 +41,7 @@ export default function MainLayout({ children, params: { locale } }: Props) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone}>
       <AntdStyledComponentsRegistry>
+        <MockComponent></MockComponent>
         <NoSSR>
           <div
             id="pro-layout"

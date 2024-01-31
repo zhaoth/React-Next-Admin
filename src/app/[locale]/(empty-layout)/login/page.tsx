@@ -3,7 +3,7 @@
 import { Tabs, theme } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from '@/lib/language';
 import useAccessStore from '@/store/useAccessStore';
 import { sleep } from 'ahooks/es/utils/testingHelpers';
@@ -13,6 +13,7 @@ import { staticRouter } from '@/static/staticRouter';
 import { ChangeLanguage } from '@/components';
 import { login } from '@/static/emits';
 import { useEvent } from '@/hooks/useEvent';
+import Apis from '@/apis';
 
 type LoginType = 'phone' | 'account';
 
@@ -33,6 +34,12 @@ export default function Login({ params: { locale } }: PageProps) {
     router.push(`${staticRouter.welcome}`);
     return true;
   };
+
+  useEffect(() => {
+    Apis.getUsers().then(res => {
+      console.log(res);
+    });
+  });
 
   return (
     <ProConfigProvider hashed={false}>

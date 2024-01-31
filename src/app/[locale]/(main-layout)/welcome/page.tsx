@@ -5,10 +5,17 @@ import { login } from '@/static/emits';
 import { useEvent } from '@/hooks/useEvent';
 import { useMount } from 'ahooks';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import Apis from '@/apis';
 
 export default function Welcome() {
   const event = useEvent();
   useMount(() => event.onEvent(login, e => console.log(e)));
+  useEffect(() => {
+    Apis.getUsers().then(res => {
+      console.log(res);
+    });
+  });
   return (
     <>
       <div>welcome</div>
