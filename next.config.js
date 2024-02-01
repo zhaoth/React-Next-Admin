@@ -26,7 +26,6 @@ const rewrites = () => {
 };
 const nextConfig = {
   rewrites,
-  output: 'export',
   reactStrictMode: false,
 };
 
