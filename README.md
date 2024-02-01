@@ -1,6 +1,13 @@
 这是一个基于 React18、NextJS14、 Ant-Design、TypeScript 的前台解决方案，目标是为开发中大型项目提供开箱即用的解决方案
 
-## 运行项目
+## 项目
+
+### 安装包
+```bash
+pnpm install
+```
+
+### 运行
 
 ```bash
 npm run dev
