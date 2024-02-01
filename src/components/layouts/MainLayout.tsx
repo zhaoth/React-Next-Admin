@@ -104,23 +104,23 @@ export default function MainLayout({ children, params: { locale } }: Props) {
                 );
               }}
             >
-              <Suspense fallback={<Spin />}>
-                <PageContainer
-                  header={
-                    {
-                      title: false,
-                    }
-                  }>
-                  <ProCard
-                    style={{
-                      height: '100vh',
-                      minHeight: 800,
-                    }}
-                  >
+              <PageContainer
+                header={
+                  {
+                    title: false,
+                  }
+                }>
+                <ProCard
+                  style={{
+                    height: '100vh',
+                    minHeight: 800,
+                  }}
+                >
+                  <Suspense fallback={<Spin />}>
                     {children}
-                  </ProCard>
-                </PageContainer>
-              </Suspense>
+                  </Suspense>
+                </ProCard>
+              </PageContainer>
 
             </ProLayout>
           </div>

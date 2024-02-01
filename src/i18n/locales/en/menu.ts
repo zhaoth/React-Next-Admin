@@ -1,4 +1,4 @@
-export const menu =  {
+export const menu = {
   welcome: 'Welcome',
   dashboard: 'Dashboard',
   demo: 'Demo',
