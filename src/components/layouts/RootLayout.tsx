@@ -1,14 +1,14 @@
 import '@/app/globals.css';
 import AntdStyledComponentsRegistry from '@/lib/antd-registry';
 import React from 'react';
-import { RootProps } from '@/typing/Layout';
+import { Partial, Props } from '@/types/Layout';
 
 export const metadata: { title: string, description: string } = {
   title: 'React Next Admin',
   description: '',
 };
 
-export default async function RootLayout({ children }: RootProps) {
+export default async function RootLayout({ children }: Partial<Props>) {
   return (
     <html lang="en">
     <body>

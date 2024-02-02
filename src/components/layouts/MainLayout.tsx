@@ -6,7 +6,7 @@ import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { LogoutOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps, Spin } from 'antd';
 import { usePathname, useRouter } from '@/lib/language';
-import { Props } from '@/typing/Layout';
+import { Props } from '@/types/Layout';
 import { NextIntlClientProvider } from 'next-intl';
 import useMainLayoutProps from '@/components/layouts/useMainLayoutProps';
 import { staticRouter } from '@/static/staticRouter';

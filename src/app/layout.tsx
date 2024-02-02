@@ -1,5 +1,5 @@
 import React from 'react';
-import { Props } from '@/typing/Layout';
+import { Props } from '@/types/Layout';
 
 export default function Layout({ children }: Props) {
   return (

@@ -1,6 +1,6 @@
 import { MainLayout } from '@/components';
 import React from 'react';
-import { Props } from '@/typing/Layout';
+import { Props } from '@/types/Layout';
 import { locales } from '@/static/locales';
 
 //function to generate the routes for all the locales
