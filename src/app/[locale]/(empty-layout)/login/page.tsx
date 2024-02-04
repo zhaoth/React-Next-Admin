@@ -17,7 +17,7 @@ import Apis from '@/apis';
 
 type LoginType = 'phone' | 'account';
 
-export default function Login({ params: { locale } }: Props) {
+export default function Login() {
   const { token } = theme.useToken();
   const router = useRouter();
   const [loginType, setLoginType] = useState<LoginType>('account');
